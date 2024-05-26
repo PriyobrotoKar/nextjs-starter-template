@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+# Next.js Starter Template
+
+This repository is a Next.js starter template designed to help you quickly set up a project with the following tools and technologies:
+
+- **Next.js**: The React Framework for production
+- **ESLint**: A tool for identifying and fixing problems in your JavaScript code
+- **Prettier**: An opinionated code formatter
+- **Husky**: Git hooks made easy
+- **Prisma**: Next-generation ORM for Node.js and TypeScript
+- **shadcn/ui**: UI components for your project
+- **React Query**: Hooks for fetching, caching, and updating asynchronous data in React
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Make sure you have the following installed on your development machine:
+
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [pnpm](https://pnpm.io/)
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/nextjs-starter-template.git
+   cd nextjs-starter-template
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up environment variables:**
+
+   Create a `.env` file in the root directory of your project and add your environment variables. For example:
+
+   ```plaintext
+   DATABASE_URL="your-database-url"
+   ```
+
+### Development
+
+To start the development server, run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To build the project for production, run:
 
-## Learn More
+```bash
+pnpm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Lint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run ESLint and check for linting errors, run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+pnpm run lint
+```
 
-## Deploy on Vercel
+### Format
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To format your code with Prettier, run:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+pnpm run format
+```
+
+### Prisma
+
+To generate Prisma client, run:
+
+```bash
+pnpm dlx prisma generate
+```
+
+To run Prisma migrations, run:
+
+```bash
+pnpm dlx prisma migrate dev
+```
+
+### Husky
+
+Husky is used to manage Git hooks. This project is set up with a pre-commit hook to run ESLint and Prettier. The hooks are configured in the `.husky` directory.
+
+## Project Structure
+
+- `src/`
+  - `app/`: Next.js app directory
+  - `components/`: React components
+    - `ui/`: shadcn/ui components
+  - `lib/`: Utility functions and libraries
+  - `hooks/`: Custom React hooks
+  - `providers/`: React context providers
+- `prisma/`: Prisma schema and migration files
+- `public/`: Static assets
+
+## Contributing
+
+If you have suggestions for improving this template, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+### Additional Information
+
+#### ESLint
+
+This project uses a custom ESLint configuration to ensure code quality and consistency. You can modify the ESLint rules in the `.eslintrc.json` file.
+
+#### Prettier
+
+Prettier is configured to automatically format your code. You can customize the Prettier configuration in the `.prettierrc` file.
+
+#### Husky
+
+Husky is configured to run ESLint and Prettier checks before each commit. You can modify the hooks in the `.husky` directory.
+
+#### Prisma
+
+Prisma is used to interact with the database. The Prisma schema is defined in the `prisma/schema.prisma` file. You can configure your database connection in the `.env` file.
+
+#### shadcn/ui
+
+shadcn/ui provides a set of reusable UI components. You can find these components in the `ui` directory and use them throughout your application.
+
+#### React Query
+
+React Query is used to manage server state in your React application. You can define your queries and mutations in the `hooks` directory and use them in your components.
+
+---
+
+For detailed documentation on each of these tools and technologies, please refer to their official documentation:
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [ESLint Documentation](https://eslint.org/docs)
+- [Prettier Documentation](https://prettier.io/docs/en/)
+- [Husky Documentation](https://typicode.github.io/husky)
+- [Prisma Documentation](https://www.prisma.io/docs/)
+- [shadcn/ui Documentation](https://shadcn.dev/docs)
+- [React Query Documentation](https://react-query.tanstack.com/overview)
+
+Happy coding! 🎉
