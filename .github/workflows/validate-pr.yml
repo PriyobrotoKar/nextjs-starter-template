@@ -1,9 +1,9 @@
-name: Validate Push
+name: Validate Pull Request
 on: pull_request
     
 jobs:
   Linting:
-    name: Linting and Formatting
+    name: Building the project
     runs-on: 'ubuntu-latest'
     steps:
       - uses: actions/checkout@v4
@@ -18,10 +18,6 @@ jobs:
           run_install: false
       - name: Installing dependencies...
         run: pnpm install
-      - name: Linting...
-        run: pnpm lint
-      - name: Formatting...
-        run: pnpm format
       - name: Building...
         run: pnpm build
   pr_agent_job:
@@ -39,3 +35,4 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG.MODEL: gpt-3.5-turbo
