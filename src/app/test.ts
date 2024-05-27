@@ -1,2 +1,2 @@
-const obj="bob2222121";
+const obj="iticla";
 console.log(obj)
