@@ -1,8 +1,8 @@
 name: Validate Pull Request
 on: pull_request
-    
+
 jobs:
-  Linting:
+  Build:
     name: Building the project
     runs-on: 'ubuntu-latest'
     steps:
