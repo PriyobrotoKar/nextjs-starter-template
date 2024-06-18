@@ -1,7 +1,28 @@
 name: Validate Pull Request
-on: pull_request
+on:
+  pull_request:
+    branches:
+      - develop
 
 jobs:
+  Test:
+    name: Testing the project
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Installing dependencies...
+        run: pnpm install
+      - name: Testing...
+        run: pnpm test
   Build:
     name: Building the project
     runs-on: 'ubuntu-latest'
