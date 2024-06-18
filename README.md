@@ -38,11 +38,18 @@ Make sure you have the following installed on your development machine:
 
 3. **Set up environment variables:**
 
-   Create a `.env` file in the root directory of your project and add your environment variables. For example:
+   Create a `.env` file in the root directory of your project or you can copy the `.sample.env` file and add your environment variables. For example:
 
    ```plaintext
    DATABASE_URL="your-database-url"
    ```
+
+4. **Set up repository secrets:**
+
+- `GH_PAT` (GitHub Personal Access Token)
+- `VERCEL_ORG_ID` (Vercel Organization ID)
+- `VERCEL_PROJECT_ID` (Vercel Project ID)
+- `VERCEL_TOKEN` (Vercel Token)
 
 ### Development
 
@@ -53,6 +60,26 @@ pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+To start the database server, run:
+
+```bash
+docker compose up -d
+```
+
+### Prisma
+
+To generate Prisma client, run:
+
+```bash
+pnpm dlx prisma generate
+```
+
+To run Prisma migrations, run:
+
+```bash
+pnpm dlx prisma migrate dev
+```
 
 ### Build
 
@@ -76,20 +103,6 @@ To format your code with Prettier, run:
 
 ```bash
 pnpm run format
-```
-
-### Prisma
-
-To generate Prisma client, run:
-
-```bash
-pnpm dlx prisma generate
-```
-
-To run Prisma migrations, run:
-
-```bash
-pnpm dlx prisma migrate dev
 ```
 
 ### Husky
