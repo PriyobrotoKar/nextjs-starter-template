@@ -27,6 +27,8 @@ jobs:
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN}}
       - name: Generate prisma client
         run: pnpm dlx prisma generate
+      - name: Generate database migration
+        run: rnpm dlx prisma migrate deploy
       - name: Build Project Artifacts
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
