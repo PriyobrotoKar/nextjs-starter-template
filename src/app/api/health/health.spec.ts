@@ -4,6 +4,7 @@ import * as appHandler from './route'
 import prisma from '@/lib/prisma'
 
 beforeAll(async () => {
+  await prisma.user.deleteMany()
   await prisma.user.create({
     data: {
       email: 'test@gmail.com'
