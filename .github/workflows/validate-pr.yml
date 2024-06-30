@@ -42,5 +42,7 @@ jobs:
           run_install: false
       - name: Installing dependencies...
         run: pnpm install
+      - name: Generating prisma client
+        run: pnmp dlx prisma generate
       - name: Building...
         run: pnpm build
