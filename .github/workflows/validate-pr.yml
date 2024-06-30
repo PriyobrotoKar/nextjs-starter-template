@@ -43,8 +43,10 @@ jobs:
           run_install: false
       - name: Installing dependencies...
         run: pnpm install
-      - name: Generating prisma client
-        run: pnmp dlx prisma generate
+      - name: Generate database migration
+        run: |
+          pnpm dlx prisma migrate deploy
+          pnpx @snaplet/seed sync
       - name: Generate database migration
         run: pnpm dlx prisma migrate deploy
         env:

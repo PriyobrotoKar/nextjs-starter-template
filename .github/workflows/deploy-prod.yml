@@ -28,7 +28,9 @@ jobs:
       - name: Generate prisma client
         run: pnpm dlx prisma generate
       - name: Generate database migration
-        run: pnpm dlx prisma migrate deploy
+        run: |
+          pnpm dlx prisma migrate deploy
+          pnpx @snaplet/seed sync
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
       - name: Build Project Artifacts

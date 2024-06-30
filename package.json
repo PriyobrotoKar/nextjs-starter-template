@@ -2,6 +2,9 @@
   "name": "nextjs-fullstack-template",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "pnpx tsx prisma/seed/seed.ts"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +15,8 @@
     "test:dev": "vitest",
     "format": "prettier --write .",
     "cm": "cz",
+    "migrate": "prisma migrate dev",
+    "postmigrate": "npx @snaplet/seed sync",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky"
   },
@@ -30,6 +35,8 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.5.0",
+    "@snaplet/copycat": "^5.0.0",
+    "@snaplet/seed": "0.97.20",
     "@testing-library/react": "^16.0.0",
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
@@ -52,6 +59,7 @@
     "prettier-plugin-tailwindcss": "^0.6.2",
     "prisma": "^5.15.0",
     "tailwindcss": "^3.4.4",
+    "tsx": "^4.16.0",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },
@@ -59,5 +67,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "@snaplet/seed": {
+    "config": "prisma/seed/seed.config.ts"
   }
 }
