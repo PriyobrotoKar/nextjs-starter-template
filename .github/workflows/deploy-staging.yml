@@ -29,6 +29,8 @@ jobs:
         run: pnpm dlx prisma generate
       - name: Generate database migration
         run: pnpm dlx prisma migrate deploy
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
       - name: Build Project Artifacts
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
