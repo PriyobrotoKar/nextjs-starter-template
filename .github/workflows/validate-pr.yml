@@ -28,6 +28,7 @@ jobs:
         run: pnpm test
   Build:
     name: Building the project
+    environment: 'Staging'
     runs-on: 'ubuntu-latest'
     steps:
       - uses: actions/checkout@v4
@@ -45,4 +46,6 @@ jobs:
       - name: Generating prisma client
         run: pnmp dlx prisma generate
       - name: Building...
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
         run: pnpm build
