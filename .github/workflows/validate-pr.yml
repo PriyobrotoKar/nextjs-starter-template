@@ -31,7 +31,6 @@ jobs:
         run: pnpm test
   Build:
     name: Building the project
-    environment: 'Staging'
     runs-on: 'ubuntu-latest'
     steps:
       - uses: actions/checkout@v4
