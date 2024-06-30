@@ -24,8 +24,18 @@ jobs:
       - name: Install Vercel CLI
         run: pnpm install --global vercel@canary
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN}}
+      - name: Generate prisma client
+        run: pnpm dlx prisma generate
+      - name: Generate database migration
+        run: |
+          pnpm dlx prisma migrate deploy
+          pnpx @snaplet/seed sync
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
       - name: Build Project Artifacts
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         id: deployment
