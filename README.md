@@ -51,6 +51,17 @@ Make sure you have the following installed on your development machine:
 - `VERCEL_PROJECT_ID` (Vercel Project ID)
 - `VERCEL_TOKEN` (Vercel Token)
 
+5. **Setting Up Environments**
+
+This repository uses GitHub Actions to manage deployment to different environments.
+
+- `Production`
+  - **Secrets** : DATABASE_URL
+  - **Variables** : DEPLOYMENT_URL
+- `Staging`
+  - **Secrets** : DATABASE_URL
+  - **Variables** : STAGING_URL
+
 ### Development
 
 To start the development server, run:
@@ -157,6 +168,22 @@ shadcn/ui provides a set of reusable UI components. You can find these component
 
 React Query is used to manage server state in your React application. You can define your queries and mutations in the `hooks` directory and use them in your components.
 
+#### Vitest
+
+Vitest is used for unit testing in this project. You can write your tests in the `tests` directory and run them using the Vitest command. Configuration for Vitest can be found in the `vitest.config.js` file.
+
+#### Zod
+
+Zod is used for schema validation and type safety. You can define your Zod schemas in the `schemas` directory and use them to validate your data throughout the application.
+
+#### GitHub Actions
+
+GitHub Actions is used to automate workflows such as running tests and deploying your application. You can find the workflow definitions in the `.github/workflows` directory.
+
+#### Docker
+
+Docker is used to containerize the application, making it easier to manage dependencies and environments. You can find the Docker configuration in the `Dockerfile` and the `docker-compose.yml` file for multi-container setups.
+
 ---
 
 For detailed documentation on each of these tools and technologies, please refer to their official documentation:
@@ -168,5 +195,9 @@ For detailed documentation on each of these tools and technologies, please refer
 - [Prisma Documentation](https://www.prisma.io/docs/)
 - [shadcn/ui Documentation](https://shadcn.dev/docs)
 - [React Query Documentation](https://react-query.tanstack.com/overview)
+- [Vitest Documentation](https://vitest.dev/)
+- [Zod Documentation](https://zod.dev/)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Docker Documentation](https://docs.docker.com/)
 
 Happy coding! 🎉
